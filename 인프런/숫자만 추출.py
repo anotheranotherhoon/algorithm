@@ -7,7 +7,7 @@ for x in s:
 print(res)
 
 #약수의 갯수 구하는 방법
-cnt = 수
+cnt = 0
 for i in range(1, res+1):
 	if res%i==0:
 		cnt+=1
