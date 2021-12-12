@@ -18,15 +18,18 @@ while Q:
 		yy=tmp[1]+dy[i]
 		if 0<=xx<m and 0<=yy<n and board[xx][yy]==0:
 			board[xx][yy]=1
+			# 날짜 수 1일 증가
 			dis[xx][yy]=dis[tmp[0]][tmp[1]]+1
 			Q.append((xx, yy))
 
 flag=1
 for i in range(m):
 	for j in range(n):
-		if board[i][j]==10:
+		#안익은 토마토가 존재할경우
+		if board[i][j]==0:
 			flag=0
 result=0
+#전부다 익은 토마토다
 if flag==1:
 	for i in range(m):
 		for j in range(n):
