@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(board){
+                let n = board.length;
+                let dx = [1,-1,0,0,1,1,-1,-1];
+                let dy = [0,0,1,-1,1,-1,1,-1];
+                let answer = 0;
+                function DFS(x, y){
+                    board[x][y]=0;
+                    for(let i=0; i<8; i++){
+                        let xx = x+dx[i];
+                        let yy = y+dy[i];
+                        if(xx>=0 && xx<n && yy>=0 && yy<n && board[xx][yy]==1){
+                            DFS(xx,yy)
+                        }
+                    }
+                }
+                for(let i=0; i<n; i++){
+                    for(let j=0; j<n; j++){
+                        if(board[i][j]==1){
+                            answer++;
+                            DFS(i,j)
+                        }
+                    }
+                }
+                return answer
+            }
+            let board = [[1,1,0,0,0,1,0],
+                       [0,1,1,0,1,1,0],
+                       [0,1,0,0,0,0,0],
+                       [0,0,0,1,0,1,1],
+                       [1,1,0,1,1,0,0],
+                       [1,0,0,0,1,0,0],
+                       [1,0,1,0,1,0,0]]
+            console.log(solution(board));
+        </script>
+    </body>
+</html>

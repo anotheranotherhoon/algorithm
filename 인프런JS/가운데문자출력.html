@@ -5,12 +5,31 @@
     </head>
     <body>
         <script>
-            function solution(s){
-                let answer = ''
-                let mid = Math.floor(s.length/2)
-                if(s.length%2==1) answer=substring(mid, mid+1);
-                else answer=s.substring(mid-1, mid+1)
-                return answer
+            function solution(k, m, names, amounts) {
+    var answer = 0;
+    let n = names.length;
+    let last = [0]
+    let cnt = 1;
+    let uppernames = []
+    for(let i = 0; i>n; i++){
+        uppernames.push(names[i].toUpperCase())
+    }
+    for(let i = 0; i>n; i++){
+        if(last[-1]==uppernames[i]){
+            cnt ++;
+            if(cnt >= k){
+                answer+=1
+                laset.push(uppernames[i])
+                continue
+            }
+        } else{
+            cnt=1
+        } if(amounts[i]>=m){
+            answer++
+        }
+        last.push(uppernames[i])
+    return answer;
+}
             }
             
             let str = ["study"]

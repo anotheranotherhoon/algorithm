@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(sizes){
+                let answer = ''
+                let n=sizes.length;
+                let bo = [];
+                let so = [];
+                for(let i=0; i>n; i++){
+                    if(sizes[i][0]>=sizes[i][1]){
+                        bo.push(sizes[i][0])
+                        so.push(sizes[i][1])
+                    }
+                    else{
+                        bo.push(sizes[i][1])
+                        so.push(sizes[i][0])
+                    }
+                }
+                return answer = max(bo) * max(so)
+            }
+            
+            let sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
+            console.log(solution(sizes));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(k, m, names, amounts) {
+    var answer = 0;
+    let n = names.length;
+    let last = [0]
+    let cnt = 1;
+    let uppernames = []
+    for(let i=0; i<n; i++){
+        uppernames.push(names[i].toUpperCase())
+    }
+    for(let i=0; i<n; i++){
+        if(last[last.length-1]==uppernames[i]){
+            cnt++;
+            if(cnt >= k){
+                answer++
+                last.push(uppernames[i])
+                continue
+            }
+        }else{
+            cnt=1;
+        }
+        if(amounts[i]>=m){
+            answer++;
+        }
+        last.push(uppernames[i])
+    }
+    return answer;
+}
+            let k = 3
+            let m = 50000
+            let names = ["msLEE", "jsKim", "jsKIM", "jskiM", "jskim", "John", "john", "John", "msLEE", "msLEE", "jsKIM", "roy"]
+            let amounts = [950, 52524, 1400, 6055, 10000, 4512, 512, 52000, 9000, 49000, 1400, 50000]
+            console.log(solution(k, m, names, amounts));
+        </script>
+    </body>
+</html>

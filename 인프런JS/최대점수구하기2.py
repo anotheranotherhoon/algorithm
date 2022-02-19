@@ -3,18 +3,19 @@ def DFS(L, sum, time):
     if time > m:
         return
     if L==n:
-        if sum>res:
-            sum = res
+        if res < sum:
+            res = sum  
     else:
         DFS(L+1, sum+pv[L], time+pt[L])
         DFS(L+1, sum, time)
 
 
-n, m = map(int, input().split())
+
+n,m = map(int, input().split())
 pv = []
 pt = []
 for i in range(n):
-    a, b = map(int, input().split())
+    a ,b = map(int, input().split())
     pv.append(a)
     pt.append(b)
 res = -2147000000
